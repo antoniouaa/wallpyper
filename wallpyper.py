@@ -14,7 +14,7 @@ def grab_credentials(cred_path):
             credentials[field] = value.strip()
         return credentials
 
-def query(term, img_num=100, page_num=10, width=1920, height=1080):
+def query(term, img_num=100, page_num=10, width=1920):
     headers = {
         "Accept-Version": "v1",
         "Authorization": f"Client-ID {CREDENTIALS['ACCESS']}",
@@ -25,7 +25,7 @@ def query(term, img_num=100, page_num=10, width=1920, height=1080):
         "page": f"{page_num}",
         "query": term
     }
-    dimensions = f"?fit=crop&fm=png&w={width}"#h={height}"
+    dimensions = f"?fit=crop&fm=png&w={width}"
     req = requests.get(BASE_URL, headers=headers, params=page_params)
     json = req.json()
     images = []
