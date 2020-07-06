@@ -5,6 +5,7 @@ from time import sleep
 from random import choice
 
 BASE_URL = "https://api.unsplash.com/search/photos"
+TERMS = ["mountain", "sunset", "sunrise", "nature", "skyline", "monument", "graffiti", "aurora"]
 
 def grab_credentials(cred_path):
     with open(cred_path) as f:
@@ -45,13 +46,12 @@ def set_background(img_url, img_path="tmp\\wallpaper.png"):
     absolute_img_path = os.path.abspath(img_path)
     ctypes.windll.user32.SystemParametersInfoW(20, 0, absolute_img_path, 0)
 
-TERMS = ["mountain", "sunset", "sunrise", "nature", "skyline", "monument", "graffiti", "aurora"]
-CREDENTIALS = grab_credentials("credentials.txt")
-
-change_every = 3*60*60
-while True:
-    random_term = choice(TERMS)
-    images = query(random_term)
-    random_image = choice(images)
-    set_background(random_image)
-    sleep(change_every)
+if __name__ == "__main__":
+    CREDENTIALS = grab_credentials("credentials.txt")
+    change_every = 3*60*60
+    while True:
+        random_term = choice(TERMS)
+        images = query(random_term)
+        random_image = choice(images)
+        set_background(random_image)
+        sleep(change_every)
