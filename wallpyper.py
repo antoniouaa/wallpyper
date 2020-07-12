@@ -38,7 +38,6 @@ def query(term, img_num=100, page_num=10, width=1920):
     return images
 
 def set_background(img_url, img_path="tmp\\wallpaper.png"):
-    print(img_url)
     download = requests.get(img_url, stream=True)
     with open(img_path, "bw") as f:
         for x in download:
