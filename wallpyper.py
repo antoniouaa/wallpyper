@@ -47,7 +47,7 @@ def set_background(img_url, img_path="tmp\\wallpaper.png"):
 
 if __name__ == "__main__":
     CREDENTIALS = grab_credentials("credentials.txt")
-    change_every = 3*60*60
+    change_every = 3*60
     while True:
         random_term = choice(TERMS)
         images = query(random_term)
