@@ -35,6 +35,7 @@ def query(term, img_num=100, page_num=1, width=1920):
     return images
 
 def set_background(img_url, img_path="tmp\\wallpaper.png"):
+    print(f"Downloading from: {img_url}")
     download = requests.get(img_url, stream=True)
     with open(img_path, "bw") as f:
         for x in download:
@@ -49,7 +50,7 @@ def run():
     set_background(random_image)
 
 BASE_URL = "https://api.unsplash.com/search/photos"
-TERMS = ["mountain", "sunset", "sunrise", "nature", "skyline", "monument", "graffiti", "aurora", "space", "galaxy", "punk"]
+TERMS = ["mountain", "sunset", "sunrise", "nature", "skyline", "monument", "graffiti", "aurora", "space", "galaxy", "steampunk", "retro", "cyber"]
 CREDENTIALS = grab_credentials("credentials.txt")
 
 if __name__ == "__main__":
