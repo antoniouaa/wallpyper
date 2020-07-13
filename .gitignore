@@ -1,3 +1,6 @@
 credentials.txt
 .vscode/
 tmp/
+*.py~
+*.py.un~
+wallpype_once.py
